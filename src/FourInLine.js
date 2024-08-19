@@ -21,14 +21,23 @@ class FourInLine extends React.Component{
         let currentCounter = this.state.counter;
         if((x===5 || !(currentValues[x+1][y] === ''))&& (currentValues[x][y] === '') && (this.state.available)) {
             currentCounter++;
+<<<<<<< HEAD
            if(currentSign) currentValues[x][y]='X';
            else currentValues[x][y]='O';
+=======
+            if(currentSign) currentValues[x][y]='X';
+            else currentValues[x][y]='O';
+>>>>>>> origin/master
             currentSign=!currentSign;
             this.setState({values:currentValues, sign:currentSign, turn: currentSign ? "Red Turn" : "Yellow Turn",counter:currentCounter})
             if(currentCounter>=7)
                 this.check();
             if(currentCounter>=42)
+<<<<<<< HEAD
               this.setState({winner:"No Winner"})
+=======
+                this.setState({winner:"No Winner"})
+>>>>>>> origin/master
         }
     }
     check = () => {
@@ -86,6 +95,7 @@ class FourInLine extends React.Component{
         this.setState({winner: checkedWinner, available: isAvailable})
     }
     resetGame = () =>{
+<<<<<<< HEAD
     const prevValues = [
         ['','','','','','',''],
         ['','','','','','',''],
@@ -94,6 +104,16 @@ class FourInLine extends React.Component{
         ['','','','','','',''],
         ['','','','','','','']
     ]
+=======
+        const prevValues = [
+            ['','','','','','',''],
+            ['','','','','','',''],
+            ['','','','','','',''],
+            ['','','','','','',''],
+            ['','','','','','',''],
+            ['','','','','','','']
+        ]
+>>>>>>> origin/master
         this.setState({values: prevValues, sign: true ,turn:"Red Turn", winner:"", available:true})
     }
     chooseClass=(x ,y)=>{
@@ -105,6 +125,7 @@ class FourInLine extends React.Component{
     }
     render() {
         return(<div><h1>Four In Line</h1>
+<<<<<<< HEAD
            <table className={"inLine"}>
             {this.state.values.map((x, xIndex)=>{
                 return(
@@ -117,6 +138,20 @@ class FourInLine extends React.Component{
                 )
             })}
            </table>
+=======
+            <table className={"inLine"}>
+                {this.state.values.map((x, xIndex)=>{
+                    return(
+                        <tr>
+                            {x.map((y,yIndex)=>{
+                                return(
+                                    <td onClick={()=>this.putValue(xIndex,yIndex)} className={this.chooseClass(xIndex,yIndex)}></td>
+                                ) })}
+                        </tr>
+                    )
+                })}
+            </table>
+>>>>>>> origin/master
             <div><h2>{!this.state.winner && this.state.turn}</h2></div>
             <div><h2>{this.state.winner}</h2></div>
             <button onClick={this.resetGame}>Reset Game</button>
