@@ -1,25 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Game from "./Game";
+import FourInLine from "./FourInLine";
+import {BrowserRouter,Routes,Route,NavLink} from "react-router-dom";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={"App"}>
+        <BrowserRouter>
+            <NavLink to={"/"} style={{marginRight:"10px"}}>X-O Game</NavLink>
+            <NavLink to={"/fourInLine"}>Four in line</NavLink>
+            <Routes>
+                <Route path={"/"} element={<Game/>}></Route>
+                <Route path={"/FourInLine"} element={<FourInLine/>}></Route>
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
